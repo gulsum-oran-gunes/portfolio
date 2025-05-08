@@ -9,4 +9,14 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://juai68gp12.execute-api.us-east-1.amazonaws.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, "/prod"),
+        secure: false,
+      },
+    },
+  },
 });

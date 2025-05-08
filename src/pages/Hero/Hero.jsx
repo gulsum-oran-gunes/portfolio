@@ -47,6 +47,8 @@ const GridBackground = () => {
 };
 
 export default function Hero() {
+  const [visitorCount, setVisitorCount] = useState(null);
+  let hasFetched = false;
   const words = [
     "Full-Stack Developer & UI/UX Enthusiast",
     ".Net Developer & Framework Explorer",
@@ -55,7 +57,7 @@ export default function Hero() {
   ];
 
   const [code] = useState(`
-const profile = {
+  const profile = {
     name: 'Gülsüm Oran Güneş',
     title: 'Full-Stack Developer | Cloud Enthusiast | Problem Solver',
     skills: [
@@ -138,6 +140,47 @@ const profile = {
       window.removeEventListener("resize", checkResolution);
     };
   }, [code]);
+  
+  useEffect(() => {
+    const storedCount = localStorage.getItem("visitorCount");
+    const hasVisited = localStorage.getItem("hasVisitedCounter");
+  
+    if (storedCount) {
+      setVisitorCount(parseInt(storedCount));
+    }
+  
+    async function fetchVisitorCount() {
+      if (hasVisited || hasFetched) return;
+      hasFetched = true;
+  
+      try {
+        const response = await fetch("/api/counter", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({}),
+        });
+  
+        if (response.ok) {
+          const data = await response.json();
+          setVisitorCount(data.count);
+          localStorage.setItem("visitorCount", data.count); // Sayacı sakla
+          localStorage.setItem("hasVisitedCounter", "true"); // Tekrar arttırmayı engelle
+        } else {
+          console.error("Visitor count API failed.");
+        }
+      } catch (err) {
+        console.error("Error fetching visitor count:", err);
+      }
+    }
+  
+    fetchVisitorCount();
+  
+    const faviconLink = document.querySelector("link[rel*='icon']");
+    if (faviconLink) {
+      faviconLink.href = "/path/to/empty/favicon.ico";
+    }
+  }, []);
+  
 
   return (
     <>
@@ -191,7 +234,9 @@ const profile = {
               {/* Name section */}
               <div className="relative mb-6 sm:mb-8">
                 <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight">
-                  <SparklesText text="Hello, Visitor 12" />
+                <SparklesText text={`Hello, Visitor ${visitorCount ?? "..."}`} />
+      
+
                   <span className="relative inline-block">
                     I&apos;m
                     <span className="typing-effect gradient-text">
