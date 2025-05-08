@@ -152,9 +152,14 @@ export default function Hero() {
     async function fetchVisitorCount() {
       if (hasVisited || hasFetched) return;
       hasFetched = true;
-  
+      
+      const API_URL =
+      import.meta.env.MODE === "development"
+        ? "/api/counter"
+        : "https://juai68gp12.execute-api.us-east-1.amazonaws.com/prod/counter";
+
       try {
-        const response = await fetch("/api/counter", {
+        const response = await fetch(API_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({}),
