@@ -244,9 +244,9 @@ export default function Hero() {
 
                   <span className="relative inline-block">
                     I&apos;m
-                    <span className="typing-effect gradient-text">
+                    <span className= " gradient-text ">
                       {" "}
-                      Ege Güneş
+                      Gülsüm Oran Güneş
                     </span>
                   </span>
                 </h1>

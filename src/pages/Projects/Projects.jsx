@@ -20,7 +20,7 @@ const projects = [
     src1: "/portfolio1.png",
     src2: "/portfolio2.png",
     color: "#ed649e",
-    githubLink: "https://github.com/gulsum-oran-gunes",
+    githubLink: "https://github.com/gulsum-oran-gunes/portfolio",
     liveLink: "https://gulsumoran.com",
   },
   {
