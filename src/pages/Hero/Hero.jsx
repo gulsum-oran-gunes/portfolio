@@ -246,7 +246,7 @@ export default function Hero() {
                     I&apos;m
                     <span className="typing-effect gradient-text">
                       {" "}
-                      Gülsüm Oran Güneş
+                      Ege Güneş
                     </span>
                   </span>
                 </h1>
