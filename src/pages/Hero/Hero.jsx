@@ -327,7 +327,7 @@ export default function Hero() {
                   <i className="fas fa-wand-magic-sparkles"></i>&nbsp;&nbsp;API Lover
                 </div>
               </div>
-              <div className="hidden lg:block absolute right-10 top-20 animate-float">
+              <div className="hidden lg:block absolute right-6 top-16 animate-float">
                 <div className="px-4 py-2 rounded-lg bg-blue-500/10 backdrop-blur-sm border border-blue-500/20 text-blue-400">
                   <i className="fas fa-code"></i>&nbsp;&nbsp;Clean Code
                 </div>
