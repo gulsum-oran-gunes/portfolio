@@ -211,7 +211,7 @@ export default function Hero() {
 
           {/* Main content container */}
           <div
-            className="container mx-auto flex flex-col lg:flex-row items-center justify-between relative z-10 py-8 md:py-10 lg:py-12 md:pt-28 xl:pt-28 mt-10 md:mt-0"
+            className="container mx-auto flex flex-col lg:flex-row items-center justify-between relative z-10 py-8 md:py-12 md:pt-28 xl:pt-28 mt-10 md:mt-0"
             style={{
               paddingTop:
                 window.innerWidth >= 1360 &&
@@ -363,7 +363,7 @@ export default function Hero() {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce flex flex-col items-center gap-2">
-          <span className="text-gray-400 text-sm flex items-center gap-2">
+          <span className="text-gray-400 text-sm flex items-center gap-2 hidden md:flex">
             <i className="fas fa-mouse text-blue-400"></i>
             About me
           </span>

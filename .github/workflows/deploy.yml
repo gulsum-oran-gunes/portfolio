@@ -4,7 +4,7 @@ name: Deploy to S3 and Invalidate CloudFront
 on:
   push:
     branches:
-      - master  # veya senin ana branch'in neyse (örn: master)
+      - master  # or what is your branchs name (example: main)
 
 jobs:
   deploy:

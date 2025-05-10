@@ -8,8 +8,14 @@ import {
   FaCode,
   FaEnvelope,
   FaBars,
+  FaBlogger,
+  FaArrowUp,
+  FaLongArrowAltRight,
+  FaExternalLinkAlt,
+  FaExternalLinkSquareAlt,
 } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
+import { SquareArrowUpRight } from "lucide-react";
 
 export default function Header() {
   const location = useLocation();
@@ -62,6 +68,7 @@ export default function Header() {
       path: "/experience",
     },
     { id: "contact", icon: FaEnvelope, text: "Contact", path: "/contact" },
+    { id: "blog", icon: FaExternalLinkSquareAlt, text: "Blog", path: "https://medium.com/@gulsumorangunes" },
   ];
 
   return (
@@ -89,6 +96,7 @@ export default function Header() {
                   <Link
                     key={id}
                     to={path}
+                    target={id === "blog" ? "_blank" : undefined} // only for blog target="_blank"
                     onClick={() => {
                       setActiveLink(id);
                       setIsMenuOpen(false);
