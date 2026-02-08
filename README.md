@@ -1,188 +1,113 @@
-# Portfolio Website
-<div align="center">
-  <pre>
-    _____           _    __      _ _       
-   |  __ \         | |  / _|    | (_)      
-   | |__) |__  _ __| |_| |_ ___ | |_  ___  
-   |  ___/ _ \| '__| __|  _/ _ \| | |/ _ \ 
-   | |  | (_) | |  | |_| || (_) | | | (_) |
-   |_|   \___/|_|   \__|_| \___/|_|_|\___/ 
-  </pre>
-</div>
+# Gulsum Oran Gunes | Portfolio
 
- 
-Welcome to my **portfolio website**! This site showcases my skills, experience, education, projects, and how to get in touch with me. It's built with **React** and **Vite** for a fast, modern web experience. You can explore my work, learn about my journey, and contact me directly.
+Personal portfolio website built to showcase my work, background, and skills, with a strong focus on a serverless AWS architecture. The stack uses S3 and CloudFront for hosting, API Gateway and Lambda for the visitor counter, DynamoDB for storage, and ACM for HTTPS.
 
----
+## Live
+- https://gulsumoran.com/
 
+## Features
+- Responsive, mobile-first layout
+- Smooth animations and micro-interactions
+- Modular component structure
+- Easy content updates through React components
+- Fast builds and hot reload with Vite
+- Serverless AWS visitor counter (API Gateway + Lambda + DynamoDB)
 
-## Live Preview
+## AWS Architecture (Serverless Visitor Counter)
+This project uses a serverless AWS setup to host the site and track visits:
+- **S3** stores the static build output (`dist/`).
+- **CloudFront** serves the site globally with CDN caching.
+- **AWS Certificate Manager (ACM)** provides the SSL/TLS certificate for HTTPS.
+- **API Gateway** receives a request on each site visit.
+- **Lambda** updates the visitor counter logic.
+- **DynamoDB** stores the total visit count.
 
-Check out the live preview of the portfolio website here:  
-[**Live Demo**](https://gulsumoran.com/)
----
-### 🎯 Project Structure
-```bash
-portfolio/
-├── node_modules/
-├── public/
-├── src/
-│   ├── assets/
-│   │   ├── css/
-│   │   │   ├── index.css
-│   │   │   └── tomorrow.css
-│   │   └── images/
-│   ├── components/
-│   │   ├── ui/
-│   │   │   ├── Reusable Components/
-│   │   │   │   ├── badge.jsx
-│   │   │   │   ├── button.jsx
-│   │   │   │   ├── card.jsx
-│   │   │   │   ├── EducationLoader.jsx
-│   │   │   │   ├── evervault-card.jsx
-│   │   │   │   ├── flip-words.jsx
-│   │   │   │   ├── icon-cloud.jsx
-│   │   │   │   ├── meteors.jsx
-│   │   │   │   ├── sparkles-text.jsx
-│   │   │   │   └── tooltip.jsx
-│   │   │   │
-│   │   │   ├── Main Components/
-│   │   │   │   ├── AnimatedGrid.jsx
-│   │   │   │   ├── Contact.jsx
-│   │   │   │   ├── Education.jsx
-│   │   │   │   ├── enhanced-portfolio-card.jsx
-│   │   │   │   ├── Experience.jsx
-│   │   │   │   ├── global.jsx
-│   │   │   │   ├── Header.jsx
-│   │   │   │   ├── Hero.jsx
-│   │   │   │   ├── Home.jsx
-│   │   │   │   ├── PortfolioPage.jsx
-│   │   │   │   ├── Projects.jsx
-│   │   │   │   └── Skills.jsx
-│   │   └── lib/
-│   │       └── utils.js
-│   ├── pages/
-│   │   ├── About/
-│   │   │   └── About.jsx
-│   │   ├── Contact/
-│   │   │   └── Contact.jsx
-│   │   ├── Experience/
-│   │   │   └── Experience.jsx
-│   │   ├── Header/
-│   │   │   └── Header.jsx
-│   │   ├── Hero/
-│   │   │   └── Hero.jsx
-│   │   ├── Projects/
-│   │   │   ├── Projects.jsx
-│   │   │   └── testProjects.jsx
-│   │   └── Skills/
-│   │       └── Skills.jsx
-│   ├── App.jsx
-│   └── main.jsx
-├── Configuration Files/
-│   ├── .eslintrc.js
-│   ├── .gitignore
-│   ├── components.json
-│   ├── index.html
-│   ├── jsconfig.json
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── postcss.config.js
-│   ├── README.md
-│   ├── tailwind.config.js
-│   ├── vercel.json
-│   └── vite.config.js
+To avoid increasing the count on every refresh, the last visitor count is saved in **localStorage**. If a user refreshes the page, the count remains the same on the client.
+
+## Sections
+- Hero / Intro
+- About
+- Skills
+- Experience
+- Education
+- Projects
+- Contact
+- Blog
+
+## Tech Stack
+- React (Vite)
+- Tailwind CSS
+- Framer Motion
+- React Router
+- React Icons
+- Radix UI (component primitives)
+- Lenis (smooth scrolling)
+
+## Getting Started
+Prerequisites: Node.js (>=18) and npm.
 
 ```
----
-
-## Sections of the Portfolio
-
-The portfolio website consists of the following sections:
-
-- **Home**: Introduction and a brief overview.
-- **Skills**: A detailed list of my technical skills.
-- **Experience**: My professional journey and work experience.
-- **Education**: Academic background and certifications.
-- **Projects**: A showcase of the projects I've worked on.
-- **Contact**: Information on how to reach out to me.
-
----
-
-## 💻 Technologies Used
-- **Frontend:** React.js with Vite
-- **Styling:** Tailwind CSS
-- **Animations:** Framer Motion
-- **Icons:** React Icons
-- **Deployment:** AWS
-
----
-
-## Installation ⬇️
-
-You will need to download **Git** and **Node** to run this project.
-
-### Git
-
-- Download and install Git from the official website: [Git Downloads](https://git-scm.com/)
-- Verify the installation:
-  ```bash
-  git --version
-  ```
-
-### Node
-
-- Download and install Node.js from the official website: [Node.js Downloads](https://nodejs.org/)
-- Make sure you have the latest version of both Git and Node on your computer.
-- Verify the installation:
-  ```bash
-  node --version
-  ```
-
-# Getting Started 🎯
-
-### Fork and Clone the Repository 🚀
-1. Click the **Fork** button at the top-right corner of the page to create your own copy of the repository.
-2. After forking, open your terminal and run the following commands to clone the repo:
-
-  ```bash
-  git clone https://
-  ```
-Navigate to the Project Directory 📂
-Once the repository is cloned, change your directory to the project folder:
-```bash
+git clone https://github.com/<username>/<repo-name>.git
 cd portfolio
-```
-
-Install Dependencies ⚙️
-From the root directory of your project, install the necessary packages:
-```bash
 npm install
-```
-
-Run the Development Server 🚀
-Start the development server to see your project live:
-```bash
 npm run dev
 ```
 
-View the Project 🌐
-Open your browser and visit http://localhost:5173/ to see the result! 🎉
+Open `http://localhost:5173/` in your browser.
 
-## 📝 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## Scripts
+```
+npm run dev       # start dev server
+npm run build     # production build
+npm run preview   # preview the build locally
+npm run lint      # run ESLint
+```
+
+## Project Structure
+```
+src/
+  assets/         # images, fonts, static files
+  components/     # reusable UI pieces
+  pages/          # section-level components
+  App.jsx         # routes / main layout
+  main.jsx        # app entry point
+```
+
+## Updating Content
+- Section content lives under `src/pages/` (each section is its own component).
+- Shared UI elements live under `src/components/`.
+- Images and static files are in `src/assets/`.
+
+## Build
+```
+npm run build
+```
+The production build is generated in `dist/`.
+
+## Deployment
+This is a static site. My current deployment uses **AWS S3 + CloudFront**.
+
+You can also upload the `dist/` folder to any static host:
+- Vercel
+- Netlify
+- GitHub Pages
+
+Domain and DNS are managed with **Cloudflare**.
+
+## CI/CD
+Deployments are automated with **GitHub Actions**.
+Workflow summary (`.github/workflows/deploy.yml`):
+- Trigger: push to `master`
+- Build: Node.js 18, `npm install`, `npm run build`
+- Deploy: sync `dist/` to S3
+- Cache: CloudFront invalidation (`/*`)
+
+Required GitHub Secrets:
+- `S3_BUCKET_NAME`
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `AWS_REGION`
+- `CLOUDFRONT_DISTRIBUTION_ID`
 
 ---
-
-### 🤝 Contributing
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-<div align="center"> Made with ❤️ by Gülsüm Oran Güneş </div>
 
